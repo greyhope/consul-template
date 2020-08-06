@@ -15,7 +15,6 @@ var testConsul *testutil.TestServer
 var testClients *hcat.ClientSet
 
 func TestMain(m *testing.M) {
-	println(1)
 	log.SetOutput(ioutil.Discard)
 	consul, err := testutil.NewTestServerConfig(func(c *testutil.TestServerConfig) {
 		c.LogLevel = "warn"
@@ -26,7 +25,6 @@ func TestMain(m *testing.M) {
 		log.Fatal(fmt.Errorf("failed to start consul server: %v", err))
 	}
 	testConsul = consul
-	println(2)
 
 	clients := hcat.NewClientSet()
 	clients.AddConsul(hcat.ConsulInput{
